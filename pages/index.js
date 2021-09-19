@@ -1,10 +1,17 @@
-import Head from 'next/head';
-import Image from 'next/image';
+import Logo from '../components/Logo';
+import Menu from '@/components/Menu';
 
 export default function Home() {
   return (
-    <div>
-      <div className="shadow bg-red-400">hello world</div>
+    <div className="py-8 container mx-auto flex justify-between">
+      <div className="pl-8">
+        <Logo />
+
+        <Menu />
+      </div>
+      <div className="w-3/4">
+        <h1 className="text-3xl font-bold">Top stories</h1>
+      </div>
     </div>
   );
 }
