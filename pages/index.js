@@ -7,6 +7,9 @@ import timeAgo from '@/libs/timeAgo';
 import getHostNameOfURL from '@/libs/getHostNameOfURL';
 import { useEffect, useState } from 'react';
 import retry from '@/libs/retry';
+import Container from '@/components/Container';
+import Sidebar from '@/components/Sidebar';
+import Layout from '@/components/Layout';
 
 const LOAD_ITEMS_PER_SCROLL = 10;
 
@@ -50,28 +53,20 @@ export default function Top({ storyIDs, preloadedStories }) {
   }, [loading, unloadedStories]);
 
   return (
-    <div className="py-8 container mx-auto flex justify-between">
-      <div className="pl-8">
-        <Logo />
-
-        <Menu />
-      </div>
-      <div className="w-3/4">
-        <h1 className="text-3xl mb-12 font-bold">Top stories</h1>
-        {stories.map((story, index) => (
-          <StoryCard
-            className="mb-4"
-            key={story.id}
-            title={story.title}
-            score={story.score}
-            by={story.by}
-            time={timeAgo(story.time * 1000)}
-            url={getHostNameOfURL(story.url)}
-            descendants={story.descendants}
-          />
-        ))}
-      </div>
-    </div>
+    <Layout title="Top stories">
+      {stories.map((story, index) => (
+        <StoryCard
+          className="mb-4"
+          key={story.id}
+          title={story.title}
+          score={story.score}
+          by={story.by}
+          time={timeAgo(story.time * 1000)}
+          url={getHostNameOfURL(story.url)}
+          descendants={story.descendants}
+        />
+      ))}
+    </Layout>
   );
 }
 

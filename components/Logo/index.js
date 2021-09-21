@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './index.module.css';
 import c from 'classnames';
 
-export default function Logo() {
+export default function Logo({ className, ...props }) {
   return (
-    <div className="flex items-center">
+    <div className={c('flex items-center', className)} {...props}>
       <span
         className={c(
           styles.icon,
