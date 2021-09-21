@@ -1,0 +1,12 @@
+.vote {
+  border-right: 1px solid #e5e7eb;
+  height: 100%;
+  margin-right: 1.5rem;
+  padding-right: calc(1.5rem - 1px);
+}
+.cardBody {
+  border-left: 1px solid #e5e7eb;
+  height: 100%;
+  margin-left: 1.5rem;
+  padding-left: calc(1.5rem - 1px);
+}
