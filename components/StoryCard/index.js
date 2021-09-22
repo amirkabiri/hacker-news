@@ -20,7 +20,7 @@ export default function StoryCard({
   return (
     <div
       className={c(
-        'p-8 flex flex-row items-center bg-white rounded shadow overflow-hidden',
+        'p-8 flex flex-row items-center bg-white rounded shadow',
         className
       )}
       {...props}
@@ -30,7 +30,7 @@ export default function StoryCard({
         <span className="text-gray-600 mt-3 text-xs">{score}</span>
       </div>
       <div className={styles.cardBody}>
-        <div className="text-gray-800 w-max-content text-sm mb-4 cursor-pointer">
+        <div className="text-gray-800 text-sm mb-3 cursor-pointer">
           <Link href={`/item/${id}`}>{title}</Link>
         </div>
         <StoryDetails by={by} time={time} url={url} descendants={descendants} />

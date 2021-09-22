@@ -53,7 +53,7 @@ export default function Item({ item, loadedKids, unloadedKids }) {
 
   return (
     <Layout>
-      <h1 className="text-gray-800 text-xl font-medium mb-4">{item.title}</h1>
+      <h1 className="text-gray-800 text-xl font-medium mb-3">{item.title}</h1>
       <StoryDetails
         by={item.by}
         time={timeAgo(item.time * 1000)}
