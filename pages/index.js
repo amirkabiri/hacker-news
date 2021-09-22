@@ -6,6 +6,7 @@ import getHostNameOfURL from '@/libs/getHostNameOfURL';
 import { useEffect, useState } from 'react';
 import retry from '@/libs/retry';
 import Layout from '@/components/Layout';
+import StoryCardLoading from '@/components/StoryCardLoading';
 
 const LOAD_ITEMS_PER_SCROLL = 10;
 
@@ -63,6 +64,14 @@ export default function Top({ storyIDs, preloadedStories }) {
           descendants={story.descendants}
         />
       ))}
+
+      {loading && (
+        <div className="mt-10">
+          {Array.from({ length: 5 }, (_, i) => (
+            <StoryCardLoading key={i} />
+          ))}
+        </div>
+      )}
     </Layout>
   );
 }
