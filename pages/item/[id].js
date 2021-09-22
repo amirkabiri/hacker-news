@@ -5,11 +5,13 @@ import StoryDetails from '@/components/StoryDetails';
 import timeAgo from '@/libs/timeAgo';
 import React, { useEffect, useState } from 'react';
 import Comment from '@/components/Comment';
+import StoryCardLoading from '@/components/StoryCardLoading';
+import ContentLoader from 'react-content-loader';
+import CommentLoading from '@/components/CommentLoading';
 
 const LOAD_ITEMS_PER_SCROLL = 10;
 
 export default function Item({ item, loadedKids, unloadedKids }) {
-  console.log(loadedKids);
   const router = useRouter();
   const { id: ID } = router.query;
   const [items, setItems] = useState(loadedKids);
@@ -64,6 +66,12 @@ export default function Item({ item, loadedKids, unloadedKids }) {
       {items.map((item, index) => (
         <Comment className="mb-10" key={item.id} item={item} />
       ))}
+
+      {loading &&
+        Array.from(
+          { length: Math.min(LOAD_ITEMS_PER_SCROLL, unloadedItems.length) },
+          (_, i) => <CommentLoading key={i} />
+        )}
     </Layout>
   );
 }
