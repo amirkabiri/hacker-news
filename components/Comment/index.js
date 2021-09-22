@@ -36,7 +36,10 @@ export default function Comment({ item, className, ...props }) {
   return (
     <div className={c(className)} {...props}>
       <div className="flex text-gray-600 items-center text-xs mb-3">
-        <h3 className="font-semibold mr-4">{item.by}</h3>
+        <h3 className="font-semibold mr-4">
+          {item.deleted !== undefined ? 'Deleted Message' : ''}
+          {item.by}
+        </h3>
         <time dateTime="2021-02-14 22:32">{timeAgo(item.time * 1000)}</time>
       </div>
       <div
