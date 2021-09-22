@@ -5,8 +5,6 @@ import StoryDetails from '@/components/StoryDetails';
 import timeAgo from '@/libs/timeAgo';
 import React, { useEffect, useState } from 'react';
 import Comment from '@/components/Comment';
-import StoryCardLoading from '@/components/StoryCardLoading';
-import ContentLoader from 'react-content-loader';
 import CommentLoading from '@/components/CommentLoading';
 
 const LOAD_ITEMS_PER_SCROLL = 10;
@@ -54,7 +52,9 @@ export default function Item({ item, loadedKids, unloadedKids }) {
 
   return (
     <Layout>
-      <h1 className="text-gray-800 text-xl font-medium mb-3">{item.title}</h1>
+      <a href={item.url} className="text-gray-800 text-xl font-medium mb-3">
+        {item.title}
+      </a>
       <StoryDetails
         by={item.by}
         time={timeAgo(item.time * 1000)}
