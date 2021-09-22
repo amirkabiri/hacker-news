@@ -4,9 +4,22 @@
   bottom: 0;
   top: 0;
 }
-
 @media (max-width: 768px) {
   .sidebar {
+    height: auto;
+    position: static;
+  }
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: max-content;
+}
+@media (max-width: 768px) {
+  .menu {
     height: auto;
     position: static;
   }

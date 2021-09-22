@@ -23,7 +23,12 @@ export default function Layout({ children, title }) {
         <div className={c(styles.sidebar, 'py-8')}>
           <Logo />
 
-          <div className={c('flex justify-between flex-row md:flex-col')}>
+          <div
+            className={c(
+              styles.menu,
+              'flex flex-wrap justify-between flex-row md:flex-col'
+            )}
+          >
             {menuItems.map((menuItem, index) => (
               <MenuItem
                 {...menuItem}

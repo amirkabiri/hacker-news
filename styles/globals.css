@@ -19,3 +19,7 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   @apply bg-gray-100;
 }
+
+.w-max-content {
+  width: max-content;
+}

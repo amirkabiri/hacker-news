@@ -1,5 +1,3 @@
-import Logo from '@/components/Logo';
-import Menu from '@/components/Menu';
 import StoryCard from '@/components/StoryCard';
 import getTopStories from '@/api/getTopStories';
 import getItemByID from '@/api/getItemByID';
@@ -7,8 +5,6 @@ import timeAgo from '@/libs/timeAgo';
 import getHostNameOfURL from '@/libs/getHostNameOfURL';
 import { useEffect, useState } from 'react';
 import retry from '@/libs/retry';
-import Container from '@/components/Container';
-import Sidebar from '@/components/Sidebar';
 import Layout from '@/components/Layout';
 
 const LOAD_ITEMS_PER_SCROLL = 10;
@@ -58,6 +54,7 @@ export default function Top({ storyIDs, preloadedStories }) {
         <StoryCard
           className="mb-4"
           key={story.id}
+          id={story.id}
           title={story.title}
           score={story.score}
           by={story.by}
