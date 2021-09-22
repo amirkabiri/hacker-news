@@ -2,7 +2,6 @@ import StoryCard from '@/components/StoryCard';
 import getTopStories from '@/api/getTopStories';
 import getItemByID from '@/api/getItemByID';
 import timeAgo from '@/libs/timeAgo';
-import getHostNameOfURL from '@/libs/getHostNameOfURL';
 import { useEffect, useState } from 'react';
 import retry from '@/libs/retry';
 import Layout from '@/components/Layout';
@@ -60,14 +59,14 @@ export default function Top({ storyIDs, preloadedStories }) {
           score={story.score}
           by={story.by}
           time={timeAgo(story.time * 1000)}
-          url={getHostNameOfURL(story.url)}
+          url={story.url}
           descendants={story.descendants}
         />
       ))}
 
       {loading && (
         <div className="mt-10">
-          {Array.from({ length: 5 }, (_, i) => (
+          {Array.from({ length: LOAD_ITEMS_PER_SCROLL }, (_, i) => (
             <StoryCardLoading key={i} />
           ))}
         </div>

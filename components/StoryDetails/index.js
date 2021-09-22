@@ -1,6 +1,8 @@
 import WWWIcon from '@/icons/WWWIcon';
 import CommentIcon from '@/icons/CommentIcon';
 import c from 'classnames';
+import Link from 'next/link';
+import getHostNameOfURL from '@/libs/getHostNameOfURL';
 
 export default function StoryDetails({
   by,
@@ -8,6 +10,7 @@ export default function StoryDetails({
   url,
   descendants,
   className,
+  id,
   ...props
 }) {
   return (
@@ -25,12 +28,23 @@ export default function StoryDetails({
       <div className="mr-5 mt-1">{time}</div>
       <div className="mr-5 mt-1 flex items-center">
         <WWWIcon />
-        <span className="ml-2">{url}</span>
+        <span className="ml-2">{getHostNameOfURL(url)}</span>
       </div>
-      <div className="mr-5 mt-1 flex items-center">
-        <CommentIcon />
-        <span className="ml-2">{descendants}</span>
-      </div>
+
+      {id !== undefined && (
+        <Link href={`/item/${id}`}>
+          <div className="mr-5 mt-1 flex items-center cursor-pointer">
+            <CommentIcon />
+            <span className="ml-2">{descendants}</span>
+          </div>
+        </Link>
+      )}
+      {id === undefined && (
+        <div className="mr-5 mt-1 flex items-center">
+          <CommentIcon />
+          <span className="ml-2">{descendants}</span>
+        </div>
+      )}
     </div>
   );
 }

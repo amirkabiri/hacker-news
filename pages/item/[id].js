@@ -57,8 +57,8 @@ export default function Item({ item, loadedKids, unloadedKids }) {
       <StoryDetails
         by={item.by}
         time={timeAgo(item.time * 1000)}
-        url={getHostNameOfURL(item.url)}
-        descendants={item.descendants + ` (${items.length} loaded)`}
+        url={item.url}
+        descendants={item.descendants}
         className="mb-16"
       />
 
