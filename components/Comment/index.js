@@ -2,7 +2,7 @@ import timeAgo from '@/libs/timeAgo';
 import c from 'classnames';
 import styles from './index.module.css';
 import { useState } from 'react';
-import getItemByID from '@/api/getItemByID';
+import getItemByID from '@/network/getItemByID';
 import RepliesIcon from '@/icons/RepliesIcon';
 
 export default function Comment({ item, className, ...props }) {

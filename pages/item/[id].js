@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
-import getItemByID from '@/api/getItemByID';
+import getItemByID from '@/network/getItemByID';
 import StoryDetails from '@/components/StoryDetails';
-import getHostNameOfURL from '@/libs/getHostNameOfURL';
 import timeAgo from '@/libs/timeAgo';
 import React, { useEffect, useState } from 'react';
 import Comment from '@/components/Comment';

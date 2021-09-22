@@ -1,6 +1,6 @@
 import StoryCard from '@/components/StoryCard';
-import getTopStories from '@/api/getTopStories';
-import getItemByID from '@/api/getItemByID';
+import getTopStories from '@/network/getTopStories';
+import getItemByID from '@/network/getItemByID';
 import timeAgo from '@/libs/timeAgo';
 import { useEffect, useState } from 'react';
 import retry from '@/libs/retry';
