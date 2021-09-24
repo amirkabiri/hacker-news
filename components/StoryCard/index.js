@@ -3,6 +3,7 @@ import styles from './index.module.css';
 import TriangleUpIcon from '@/icons/TriangleUpIcon';
 import StoryDetails from '@/components/StoryDetails';
 import getHostNameOfURL from '@/libs/getHostNameOfURL';
+import PropTypes from 'prop-types';
 
 export default function StoryCard({
   descendants,
@@ -42,3 +43,14 @@ export default function StoryCard({
     </div>
   );
 }
+
+StoryCard.propTypes = {
+  descendants: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  by: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  className: PropTypes.string,
+  id: PropTypes.number,
+};
