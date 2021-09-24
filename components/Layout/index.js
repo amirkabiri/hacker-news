@@ -7,8 +7,9 @@ import ChatIcon from '@/icons/ChatIcon';
 import SparklesIcon from '@/icons/SparklesIcon';
 import BriefcaseIcon from '@/icons/BriefcaseIcon';
 import MenuItem from '@/components/MenuItem';
+import PropTypes from 'prop-types';
 
-const menuItems = [
+export const menuItems = [
   { text: 'Top', icon: FireIcon },
   { text: 'New', icon: NewspaperIcon },
   { text: 'Ask', icon: ChatIcon },
@@ -48,3 +49,7 @@ export default function Layout({ children, title }) {
     </div>
   );
 }
+
+Layout.propTypes = {
+  title: PropTypes.string,
+};
