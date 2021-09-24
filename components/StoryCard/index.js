@@ -2,6 +2,7 @@ import c from 'classnames';
 import styles from './index.module.css';
 import TriangleUpIcon from '@/icons/TriangleUpIcon';
 import StoryDetails from '@/components/StoryDetails';
+import getHostNameOfURL from '@/libs/getHostNameOfURL';
 
 export default function StoryCard({
   descendants,
@@ -34,7 +35,7 @@ export default function StoryCard({
           id={id}
           by={by}
           time={time}
-          url={url}
+          url={getHostNameOfURL(url)}
           descendants={descendants}
         />
       </div>

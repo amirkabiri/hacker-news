@@ -2,7 +2,7 @@ import WWWIcon from '@/icons/WWWIcon';
 import CommentIcon from '@/icons/CommentIcon';
 import c from 'classnames';
 import Link from 'next/link';
-import getHostNameOfURL from '@/libs/getHostNameOfURL';
+import PropTypes from 'prop-types';
 
 export default function StoryDetails({
   by,
@@ -28,7 +28,7 @@ export default function StoryDetails({
       <div className="mr-5 mt-1">{time}</div>
       <div className="mr-5 mt-1 flex items-center">
         <WWWIcon />
-        <span className="ml-2">{getHostNameOfURL(url)}</span>
+        <span className="ml-2">{url}</span>
       </div>
 
       {id !== undefined && (
@@ -48,3 +48,12 @@ export default function StoryDetails({
     </div>
   );
 }
+
+StoryDetails.propTypes = {
+  by: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  descendants: PropTypes.number.isRequired,
+  className: PropTypes.string,
+  id: PropTypes.number,
+};

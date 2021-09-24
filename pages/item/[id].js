@@ -6,6 +6,7 @@ import timeAgo from '@/libs/timeAgo';
 import React, { useEffect, useState } from 'react';
 import Comment from '@/components/Comment';
 import CommentLoading from '@/components/CommentLoading';
+import getHostNameOfURL from '@/libs/getHostNameOfURL';
 
 const LOAD_ITEMS_PER_SCROLL = 10;
 
@@ -58,7 +59,7 @@ export default function Item({ item, loadedKids, unloadedKids }) {
       <StoryDetails
         by={item.by}
         time={timeAgo(item.time * 1000)}
-        url={item.url}
+        url={getHostNameOfURL(item.url)}
         descendants={item.descendants}
         className="mb-16"
       />
