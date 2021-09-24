@@ -4,6 +4,7 @@ import styles from './index.module.css';
 import { useState } from 'react';
 import getItemByID from '@/network/getItemByID';
 import RepliesIcon from '@/icons/RepliesIcon';
+import PropTypes from 'prop-types';
 
 export default function Comment({ item, className, ...props }) {
   const [kids, setKids] = useState([]);
@@ -43,6 +44,7 @@ export default function Comment({ item, className, ...props }) {
         <time dateTime="2021-02-14 22:32">{timeAgo(item.time * 1000)}</time>
       </div>
       <div
+        data-testid="text"
         className={c('text-sm text-gray-800', styles.text)}
         dangerouslySetInnerHTML={{ __html: item.text }}
       />
@@ -72,3 +74,8 @@ export default function Comment({ item, className, ...props }) {
     </div>
   );
 }
+
+Comment.propTypes = {
+  item: PropTypes.object.isRequired,
+  className: PropTypes.string,
+};
